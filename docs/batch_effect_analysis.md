@@ -134,7 +134,7 @@ ax=sns.boxplot(x='k',y='KL divergence',data=dd,hue='distance based')
 ```
 
 
-![png](output_12_0.png)
+![png](assets/image/output_12_0.png)
 
 
 
@@ -186,5 +186,5 @@ ax=sns.boxplot(x='resolution',y='KL divergence',data=pd_scores_r)
 ```
 
 
-![png](output_15_0.png)
+![png](asset/image/output_15_0.png)
 
