@@ -17,7 +17,7 @@ using different resolutions ranging from 0.1 to 0.8 with an incremental 0.05 ste
 [**Cell type annotation**](docs/annotation_cell_type.md)
 
 **Microglia recluster:**
-To identify microglia subpopulations, microglia cells was re-clustered by [desc](https://github.com/eleozzr/desc). We 
+To identify microglia subpopulations, microglia cells were re-clustered by [desc](https://github.com/eleozzr/desc). We 
 selected 5,000 highly variable genes in order to detect subtle cellular differences among the 
 microglia. A single 128-node layer was applied for the encoder in DESC and the resolutions 
 ranged from 0.1 to 0.8 with an incremental 0.05 increasing step. 
@@ -25,7 +25,9 @@ ranged from 0.1 to 0.8 with an incremental 0.05 increasing step.
 [**Microglia contamination analysis**](docs/contamination.md)
 
 **Trajectory analysis:**
+
 [**Monocle3 analysis**](docs/monocle3.md)
+
 [**Paga analysis**](docs/PAGA_analysis.md)
 
 
