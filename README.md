@@ -24,6 +24,8 @@ ranged from 0.1 to 0.8 with an incremental 0.05 increasing step.
 
 [**Microglia contamination analysis**](docs/contamination.md)
 
+[**Differential gene expression analysis between microlgia subpopulations**](docs/degenes.md)
+
 **Trajectory analysis:**
 
 [**Monocle3 analysis**](docs/monocle3.md)
