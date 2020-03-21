@@ -4,11 +4,11 @@
 
 Analysis | tools
 ------------ | -------------
-Process data  | [Scanpy](https://icb-scanpy.readthedocs-hosted.com/en/stable/)1.4.7
-Process data  | [Seurat](https://satijalab.org/seurat/)v.3
+Process data  | [Scanpy1.4.7](https://icb-scanpy.readthedocs-hosted.com/en/stable/)
+Process data  | [Seurat3](https://satijalab.org/seurat/)
 Cluster analysis | [desc](https://github.com/eleozzr/desc)
 Trajectory analysis  | [paga](https://github.com/theislab/paga)
-Trajectory analysis  | [monocle3](https://cole-trapnell-lab.github.io/monocle3/)v.3
+Trajectory analysis  | [monocle3](https://cole-trapnell-lab.github.io/monocle3/)
 
 
 1.**Clustering:**
