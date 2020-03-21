@@ -11,7 +11,7 @@ Trajectory analysis  | [paga](https://github.com/theislab/paga)
 Trajectory analysis  | [monocle3](https://cole-trapnell-lab.github.io/monocle3/)
 
 
-1.**Clustering:**
+1. **Clustering:**
 The nuclei were clustered based on the 2,000 highly variable genes using [desc](https://github.com/eleozzr/desc)[1].We used two hidden layers for encoder with 256 nodes in the first layer 
 and 128 nodes in the second layer.To identify an optimal resolution parameter, we performed the DESC analysis 15 times 
 using different resolutions ranging from 0.1 to 0.8 with an incremental 0.05 step. 
@@ -32,9 +32,9 @@ ranged from 0.1 to 0.8 with an incremental 0.05 increasing step.
 
 7. **Trajectory analysis:**
 
-[**Monocle3 analysis**](docs/trajectory_monocle3.Rmd)
+  [**Monocle3 analysis**](docs/trajectory_monocle3.Rmd)
 
-[**Paga analysis**](docs/PAGA_analysis.md)
+  [**Paga analysis**](docs/PAGA_analysis.md)
 
 
 ## Reference:
