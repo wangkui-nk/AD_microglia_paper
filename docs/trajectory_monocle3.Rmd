@@ -1,0 +1,122 @@
+---
+title: "Trajectory analysis of microglia cells by Monocle3"
+output: html_notebook
+---
+
+```{r}
+library(monocle3)
+library(VGAM)
+library(Seurat)
+library(ggplot2)
+library("knitr")
+library("gridExtra")
+```
+
+
+```{r}
+dat<-readRDS("mic_final.rds")
+dat<-UpdateSeuratObject(dat)
+# remove the contamination cluster
+dat<-subset(x=dat,subset =(desc_0.8==0)|(desc_0.8==1)|(desc_0.8==4)|(desc_0.8==5))
+
+```
+
+
+```{r}
+seurat_object<-dat
+data1 <- as(as.matrix(seurat_object@assays$RNA@data), 'sparseMatrix')
+pData<-seurat_object@meta.data
+fData <- data.frame(gene_short_name = row.names(data1), row.names = row.names(data1))
+data <- new_cell_data_set(data1,
+                         cell_metadata =  pData,
+                         gene_metadata =  fData
+                         )
+```
+
+```{r}
+data@colData$Subpopulation=data@colData$desc_0.8
+levels(data@colData$Subpopulation)<-list("Homeostatic"="5","ARM"="0","Motile"="1","Dystrophic"="4")
+data@colData$Trem2=data@colData$groupid
+levels(data@colData$Trem2)<-c("WT","WT","WT","R47H")
+data@colData$ATScore=data@colData$sample
+levels(data@colData$ATScore)<-c("A+T+","A+T+","A+T+","A+T+","A+T-","A-T-","A-T-","A+T-","A+T-","A+T+","A+T-","A+T+","A+T+","A+T+","A+T-")
+data@colData$APOE=data@colData$sample
+levels(data@colData$APOE)<-c("E3/E4","E4/E4","E3/E4","E3/E4","E3/E4","E3/E3","E3/E3","E3/E4","E3/E4","E3/E3","E3/E3","E4/E4","E3/E4","E3/E3","E3/E4")
+
+```
+
+
+```{r}
+
+data<-preprocess_cds(data,num_dim = 80,verbose = TRUE)
+data<-reduce_dimension(data)
+data <- cluster_cells(data)
+```
+```{r}
+
+data <- learn_graph(data)
+```
+
+```{r}
+data<-order_cells(data)
+```
+
+```{r}
+png(filename="trajectory_80.png",units='in',width=10,height=15,res=300)
+cellsize=1
+p0<-plot_cells(data, 
+          color_cells_by = "Subpopulation", 
+          cell_size = cellsize,
+          label_roots =FALSE,
+           label_cell_groups=FALSE,
+          label_leaves=FALSE,
+          label_branch_points=FALSE,
+          trajectory_graph_segment_size=1
+)
+p0<-p0+theme(legend.position="top")+scale_color_manual(values=c('#1f77b4','#279e68','#ff7f0e','#d62728'))
+
+p1<-plot_cells(data,
+           color_cells_by = "Trem2", 
+          cell_size = cellsize,
+          label_roots = FALSE,
+           label_cell_groups=FALSE, 
+           label_leaves=FALSE,
+           label_branch_points=FALSE,
+          trajectory_graph_segment_size=1,
+  )
+p1<-p1+theme(legend.position="top")
+p2<-plot_cells(data,
+           color_cells_by = "ATScore", 
+          cell_size = cellsize,
+          label_roots = FALSE,
+           label_cell_groups=FALSE, 
+           label_leaves=FALSE,
+           label_branch_points=FALSE,
+          trajectory_graph_segment_size=1,
+  )
+p2<-p2+theme(legend.position="top")
+p3<-plot_cells(data,
+           color_cells_by = "APOE", 
+          cell_size = cellsize,
+          label_roots = FALSE,
+           label_cell_groups=FALSE, 
+           label_leaves=FALSE,
+           label_branch_points=FALSE,
+          trajectory_graph_segment_size=1,
+  )
+p3<-p3+theme(legend.position="top")
+p4<-plot_cells(data,
+           color_cells_by = "pseudotime", 
+          cell_size = cellsize,
+          label_roots = FALSE,
+           label_cell_groups=FALSE, 
+           label_leaves=FALSE,
+           label_branch_points=FALSE,
+          trajectory_graph_segment_size=1,
+  )
+p4<-p4+theme(legend.position="top")
+grid.arrange(p0,p1,p2,p3,p4,ncol=2)
+dev.off()
+```
+
+
