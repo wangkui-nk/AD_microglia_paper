@@ -26,9 +26,9 @@ selected 5,000 highly variable genes in order to detect subtle cellular differen
 microglia. A single 128-node layer was applied for the encoder in DESC and the resolutions 
 ranged from 0.1 to 0.8 with an incremental 0.05 increasing step. 
 
-5.[**Microglia contamination analysis**](docs/contamination.md)
+5.[**Microglia contamination analysis**](docs/Micorglia_contamination.md)
 
-6.[**Differential gene expression analysis between microlgia subpopulations**](docs/degenes.md)
+6.[**Differential gene expression analysis between microlgia subpopulations**](docs/DEgenes.md)
 
 7.**Trajectory analysis:**
 
