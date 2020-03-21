@@ -28,7 +28,7 @@ ranged from 0.1 to 0.8 with an incremental 0.05 increasing step.
 
 **Trajectory analysis:**
 
-[**Monocle3 analysis**](docs/monocle3.md)
+[**Monocle3 analysis**](docs/trajectory_monocle3.Rmd)
 
 [**Paga analysis**](docs/PAGA_analysis.md)
 
