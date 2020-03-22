@@ -153,7 +153,7 @@ for i in range(N):
     de_neg.sort_values('pvals_adj',inplace=True)
 
     de_pos.to_csv(savefile[i]+"_pos.csv")
-    de_pos.to_csv(savefile[i]+"_neg.csv")
+    de_neg.to_csv(savefile[i]+"_neg.csv")
 
 
 ```
@@ -377,7 +377,7 @@ for i in range(N):
     de_neg.sort_values('pvals_adj',inplace=True)
 
     de_pos.to_csv(savefile[i]+"_pos.csv")
-    de_pos.to_csv(savefile[i]+"_neg.csv")
+    de_neg.to_csv(savefile[i]+"_neg.csv")
 ```
 
     C:\Users\wangk\Anaconda3\lib\site-packages\ipykernel_launcher.py:14: SettingWithCopyWarning: 
